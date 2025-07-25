@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Website Interaktif</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+    #hasil {
+      font-size: 24px;
+      margin: 20px 0;
+      color: #444;
+      transition: all 0.3s ease;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>Halo, Selamat Datang!</h1>
+  <div id="hasil">Klik tombol di bawah ini!</div>
+  <button onclick="ubahTeks()">Klik Aku</button>
+
+  <script>
+    function ubahTeks() {
+      const hasil = document.getElementById('hasil');
+      hasil.innerText = "Kamu baru saja mengklik tombol!";
+      hasil.style.color = "#e91e63";
+      hasil.style.transform = "scale(1.2)";
+      setTimeout(() => {
+        hasil.style.transform = "scale(1)";
+      }, 300);
+    }
+  </script>
+</body>
+</html>

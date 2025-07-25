@@ -111,7 +111,6 @@
 </body>
 </html>
 
-<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -119,7 +118,6 @@
   <title>Katalog MESSTAR</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
-    /* gaya disederhanakan, kamu bisa ubah sendiri */
     body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f3f3f3; color: #222; }
     header, footer { background: #1e1e1e; color: #fff; text-align: center; padding: 20px; }
     .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
@@ -128,8 +126,10 @@
     .card h3 { margin: 10px 0 5px; }
     .card p.price { color: green; font-weight: bold; margin: 5px 0; }
     .card button { background: #222; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
-    #cart { position: fixed; top: 20px; right: 20px; background: #fff; border-radius: 10px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-width: 300px; }
+    #cart { position: fixed; top: 20px; right: 20px; background: #fff; border-radius: 10px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-width: 300px; z-index: 999; }
     #cart h4 { margin: 0 0 10px; }
+    #cart ul { list-style: none; padding: 0; max-height: 200px; overflow-y: auto; }
+    #cart ul li { margin-bottom: 5px; }
   </style>
 </head>
 <body>
@@ -137,21 +137,21 @@
 
   <div class="gallery">
     <div class="card" data-aos="fade-up">
-      <img src="https://via.placeholder.com/300x200?text=Produk+1" />
-      <h3>Produk 1</h3>
+      <img src="https://via.placeholder.com/300x200?text=Kaos+Hitam" />
+      <h3>Kaos Hitam</h3>
       <p class="price">Rp 100.000</p>
-      <button onclick="addToCart('Produk 1', 100000)">🛒 Tambah</button>
+      <button onclick="addToCart('Kaos Hitam', 100000)">🛒 Tambah ke Keranjang</button>
     </div>
     <div class="card" data-aos="fade-up" data-aos-delay="100">
-      <img src="https://via.placeholder.com/300x200?text=Produk+2" />
-      <h3>Produk 2</h3>
+      <img src="https://via.placeholder.com/300x200?text=Hoodie+Merah" />
+      <h3>Hoodie Merah</h3>
       <p class="price">Rp 150.000</p>
-      <button onclick="addToCart('Produk 2', 150000)">🛒 Tambah</button>
+      <button onclick="addToCart('Hoodie Merah', 150000)">🛒 Tambah ke Keranjang</button>
     </div>
   </div>
 
   <div id="cart">
-    <h4>Keranjang 🛒</h4>
+    <h4>Keranjang Belanja 🛒</h4>
     <ul id="cart-items"></ul>
     <p><strong>Total:</strong> Rp <span id="cart-total">0</span></p>
     <button onclick="checkout()">Checkout</button>
@@ -162,28 +162,38 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+
     let cart = [];
+
     function addToCart(name, price) {
       cart.push({ name, price });
       updateCart();
     }
+
     function updateCart() {
       const list = document.getElementById("cart-items");
       const total = document.getElementById("cart-total");
       list.innerHTML = "";
       let sum = 0;
+
       cart.forEach(item => {
         const li = document.createElement("li");
         li.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
         list.appendChild(li);
         sum += item.price;
       });
+
       total.textContent = sum.toLocaleString();
     }
+
     function checkout() {
-      if (cart.length === 0) return alert("Keranjang kosong!");
-      alert("Pesanan berhasil dibuat!");
-      cart = [];
+      if (cart.length === 0) {
+        alert("Keranjang masih kosong!");
+        return;
+      }
+
+      alert("✅ Pesanan berhasil dibuat!");
+      cart = []; // reset
       updateCart();
     }
   </script>

@@ -5,44 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MESSTAR STORE</title>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f7f7f7;
+      background: #f7f7f7;
       color: #333;
     }
-    header {
-      background-color: #111;
-      color: white;
+    header, footer {
+      background: #1e1e1e;
+      color: #fff;
       padding: 20px;
       text-align: center;
     }
-    nav {
-      background-color: #222;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
     .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
+      padding: 30px 10%;
     }
     .gallery {
       display: grid;
@@ -51,10 +29,12 @@
     }
     .card {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.3s ease;
+      text-align: center;
+      padding-bottom: 20px;
+      transition: transform 0.2s ease;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -64,79 +44,148 @@
       height: 180px;
       object-fit: cover;
     }
-    .card-body {
-      padding: 15px;
+    .card h3 {
+      margin: 10px 0 5px;
     }
-    .card-body h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
+    .card p.price {
+      color: green;
+      font-weight: bold;
+      margin: 5px 0;
     }
-    .card-body p {
-      font-size: 14px;
-      color: #555;
+    .card button {
+      padding: 10px 15px;
+      background: #222;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
     }
-    footer {
-      background-color: #111;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      margin-top: 50px;
+    .card button:hover {
+      background: #444;
     }
-
     @media (max-width: 600px) {
-      .section-title { font-size: 22px; }
-      nav { flex-direction: column; }
-      nav a { margin: 10px 0; }
+      .container {
+        padding: 15px;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>MESSTAR STORE</h1>
-    <p>Tempat Belanja Kebutuhan Anda</p>
+    <p>Produk Terbaik Untuk Anda</p>
   </header>
 
-  <nav>
-    <a href="#beranda">Beranda</a>
-    <a href="#produk">Produk</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
-
-  <div class="container" id="produk">
-    <h2 class="section-title" data-aos="fade-up">Produk Unggulan</h2>
+  <div class="container">
     <div class="gallery">
-      <div class="card" data-aos="zoom-in">
-        <img src="https://via.placeholder.com/400x250?text=Produk+1" alt="Produk 1" />
-        <div class="card-body">
-          <h3>Produk 1</h3>
-          <p>Deskripsi singkat tentang produk ini.</p>
-        </div>
+      <div class="card" data-aos="fade-up">
+        <img src="https://via.placeholder.com/300x200?text=Produk+1" />
+        <h3>Produk 1</h3>
+        <p class="price">Rp 100.000</p>
+        <button onclick="alert('Produk 1 ditambahkan ke keranjang!')">🛒 Beli</button>
       </div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="100">
-        <img src="https://via.placeholder.com/400x250?text=Produk+2" alt="Produk 2" />
-        <div class="card-body">
-          <h3>Produk 2</h3>
-          <p>Deskripsi singkat tentang produk ini.</p>
-        </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://via.placeholder.com/300x200?text=Produk+2" />
+        <h3>Produk 2</h3>
+        <p class="price">Rp 150.000</p>
+        <button onclick="alert('Produk 2 ditambahkan ke keranjang!')">🛒 Beli</button>
       </div>
-      <div class="card" data-aos="zoom-in" data-aos-delay="200">
-        <img src="https://via.placeholder.com/400x250?text=Produk+3" alt="Produk 3" />
-        <div class="card-body">
-          <h3>Produk 3</h3>
-          <p>Deskripsi singkat tentang produk ini.</p>
-        </div>
+      <div class="card" data-aos="fade-up" data-aos-delay="200">
+        <img src="https://via.placeholder.com/300x200?text=Produk+3" />
+        <h3>Produk 3</h3>
+        <p class="price">Rp 200.000</p>
+        <button onclick="alert('Produk 3 ditambahkan ke keranjang!')">🛒 Beli</button>
       </div>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 MESSTAR STORE. All rights reserved.</p>
+    <p>&copy; 2025 MESSTAR STORE</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true });
+    AOS.init();
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Katalog MESSTAR</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    /* gaya disederhanakan, kamu bisa ubah sendiri */
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f3f3f3; color: #222; }
+    header, footer { background: #1e1e1e; color: #fff; text-align: center; padding: 20px; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 20px; }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.1); text-align: center; padding-bottom: 20px; }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3 { margin: 10px 0 5px; }
+    .card p.price { color: green; font-weight: bold; margin: 5px 0; }
+    .card button { background: #222; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; }
+    #cart { position: fixed; top: 20px; right: 20px; background: #fff; border-radius: 10px; padding: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); max-width: 300px; }
+    #cart h4 { margin: 0 0 10px; }
+  </style>
+</head>
+<body>
+  <header><h1>Katalog MESSTAR</h1></header>
+
+  <div class="gallery">
+    <div class="card" data-aos="fade-up">
+      <img src="https://via.placeholder.com/300x200?text=Produk+1" />
+      <h3>Produk 1</h3>
+      <p class="price">Rp 100.000</p>
+      <button onclick="addToCart('Produk 1', 100000)">🛒 Tambah</button>
+    </div>
+    <div class="card" data-aos="fade-up" data-aos-delay="100">
+      <img src="https://via.placeholder.com/300x200?text=Produk+2" />
+      <h3>Produk 2</h3>
+      <p class="price">Rp 150.000</p>
+      <button onclick="addToCart('Produk 2', 150000)">🛒 Tambah</button>
+    </div>
+  </div>
+
+  <div id="cart">
+    <h4>Keranjang 🛒</h4>
+    <ul id="cart-items"></ul>
+    <p><strong>Total:</strong> Rp <span id="cart-total">0</span></p>
+    <button onclick="checkout()">Checkout</button>
+  </div>
+
+  <footer><p>&copy; 2025 MESSTAR STORE</p></footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+    function updateCart() {
+      const list = document.getElementById("cart-items");
+      const total = document.getElementById("cart-total");
+      list.innerHTML = "";
+      let sum = 0;
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+        list.appendChild(li);
+        sum += item.price;
+      });
+      total.textContent = sum.toLocaleString();
+    }
+    function checkout() {
+      if (cart.length === 0) return alert("Keranjang kosong!");
+      alert("Pesanan berhasil dibuat!");
+      cart = [];
+      updateCart();
+    }
   </script>
 </body>
 </html>
